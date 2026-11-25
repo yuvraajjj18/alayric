@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1728">
+  <title>ALAYRIC — Personal Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="dashboard">
+        <span class="brand-mark">A</span><span>alayric<span class="brand-dot">.</span></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-link" data-page="transfer"><span class="nav-icon">⇄</span>Transfer</button>
+        <button class="nav-link" data-page="history"><span class="nav-icon">◷</span>Transactions</button>
+        <button class="nav-link" data-page="goals"><span class="nav-icon">◎</span>Savings goals</button>
+        <div class="side-label side-label-spaced">YOUR FINANCIAL GUIDE</div>
+        <button class="nav-link" data-page="mentor"><span class="nav-icon">✧</span>Pocket Mentor</button>
+        <button class="nav-link" data-page="scams"><span class="nav-icon">盾</span>Scam awareness</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Stay money-smart.</strong>
+          <p>Small habits build stronger financial futures.</p>
+          <button class="text-button" data-page="mentor">Explore tips <span>↗</span></button>
+        </div>
+        <button class="nav-link profile-nav" data-page="profile"><span class="avatar-mini" id="sideAvatar">Y</span><span class="profile-nav-text"><b id="sideName">Your profile</b><small>Personal account</small></span><span class="more">•••</span></button>
+        <button class="nav-link logout-link" id="logoutBtn"><span class="nav-icon">↪</span>Log out</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="topbar-title" id="topbarTitle">Overview</div>
+        <div class="topbar-right">
+          <span class="demo-pill"><i></i> DEMO ACCOUNT</span>
+          <button class="icon-button" id="notifBtn" aria-label="Notifications">♧</button>
+          <button class="top-avatar" data-page="profile" id="topAvatar">Y</button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-row">
+          <div><p class="eyebrow">MONDAY, YOUR MONEY CHECK-IN</p><h1>Good to see you, <span id="welcomeName">Yuvraj</span>.</h1><p class="muted">Here’s what’s happening with your money today.</p></div>
+          <button class="primary-button" data-page="transfer"><span>＋</span> Make a transfer</button>
+        </div>
+        <div class="stat-grid">
+          <article class="balance-card">
+            <div class="card-top"><span>Total balance</span><span class="balance-chip">● Demo funds</span></div>
+            <div class="balance-amount" id="balanceValue">₹0.00</div>
+            <div class="balance-foot"><span>Available in your demo account</span><span class="balance-spark">↗</span></div>
+            <div class="card-decoration"></div>
+          </article>
+          <article class="stat-card"><div class="stat-heading"><span>Account number</span><span class="stat-icon">▤</span></div><div class="stat-value small-value" id="accountNumber">AL••••••</div><div class="stat-caption">Your ALAYRIC ID</div></article>
+          <article class="stat-card"><div class="stat-heading"><span>Savings goals</span><span class="stat-icon purple">◎</span></div><div class="stat-value" id="goalCount">0</div><div class="stat-caption">Goals in progress</div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel quick-panel">
+            <div class="section-heading"><div><p class="eyebrow">SHORTCUTS</p><h2>Quick actions</h2></div></div>
+            <div class="action-grid">
+              <button class="action-card" data-page="transfer"><span class="action-icon green">⇄</span><b>Transfer money</b><small>Send demo funds</small><span class="action-arrow">↗</span></button>
+              <button class="action-card" data-page="history"><span class="action-icon blue">◷</span><b>View history</b><small>Track activity</small><span class="action-arrow">↗</span></button>
+              <button class="action-card" data-page="goals"><span class="action-icon violet">◎</span><b>Savings goals</b><small>Plan what’s next</small><span class="action-arrow">↗</span></button>
+            </div>
+          </section>
+          <section class="panel transactions-panel">
+            <div class="section-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>Recent transactions</h2></div><button class="subtle-button" data-page="history">See all ↗</button></div>
+            <div id="recentTransactions" class="transaction-list"><div class="empty-state"><span>◷</span><b>No activity yet</b><p>Your recent transactions will appear here.</p></div></div>
+          </section>
+        </div>
+        <section class="panel goal-preview">
+          <div class="section-heading"><div><p class="eyebrow">LOOKING AHEAD</p><h2>Savings goals</h2></div><button class="subtle-button" data-page="goals">Manage goals ↗</button></div>
+          <div id="dashboardGoals" class="goal-preview-list"><div class="empty-inline">No goals yet. Create one and start tracking your progress.</div></div>
+        </section>
+        <p class="fine-print">ALAYRIC is a learning/demo application. Balances and transfers are simulated and have no monetary value.</p>
+      </section>
+
+      <section class="page" id="page-transfer">
+        <div class="page-intro"><p class="eyebrow">MOVE MONEY</p><h1>Transfer funds</h1><p class="muted">Make a simulated transfer to another demo account.</p></div>
+        <div class="form-layout">
+          <form class="panel form-panel" id="transferForm">
+            <div class="available-box"><span>Available demo balance</span><strong id="transferBalance">₹0.00</strong></div>
+            <label>Receiver account number<input id="receiver" placeholder="e.g. AL100002" autocomplete="off" required></label>
+            <div class="two-fields">
+              <label>Amount (₹)<input id="transferAmount" type="number" min="1" step="0.01" placeholder="0.00" required></label>
+              <label>Category<select id="transferCategory"><option>Transfer</option><option>Education</option><option>Shopping</option><option>Food</option><option>Other</option></select></label>
+            </div>
+            <label>Description <span class="optional">Optional</span><input id="transferDescription" maxlength="80" placeholder="What is this transfer for?"></label>
+            <label>Demo transaction PIN<input id="transferPin" type="password" inputmode="numeric" maxlength="4" placeholder="4-digit PIN" required></label>
+            <p class="form-note">Use the demo PIN you created during registration. Never enter a real banking PIN.</p>
+            <button class="primary-button full-button" type="submit">Confirm demo transfer <span>→</span></button>
+            <div class="form-message" id="transferMessage" role="status"></div>
+          </form>
+          <aside class="side-note panel"><div class="note-icon">✦</div><h3>Before you send</h3><ul><li>Double-check the receiver account number.</li><li>Transfers are simulated and cannot move real money.</li><li>Your activity will be recorded in demo history.</li></ul><div class="security-note">🔒 Your demo PIN is used only to verify this local simulation.</div></aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-history">
+        <div class="page-intro"><p class="eyebrow">ACCOUNT ACTIVITY</p><h1>Transactions</h1><p class="muted">A clear view of your demo account activity.</p></div>
+        <section class="panel table-panel">
+          <div class="table-toolbar"><div><h2>All transactions</h2><p class="muted">Your newest activity appears first.</p></div><select id="historyFilter" class="filter-select"><option value="all">All activity</option><option value="sent">Money sent</option><option value="received">Money received</option></select></div>
+          <div id="historyList"><div class="empty-state"><span>◷</span><b>No transactions yet</b><p>When you make a demo transfer, it will show up here.</p></div></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-goals">
+        <div class="page-intro"><p class="eyebrow">PLAN WITH PURPOSE</p><h1>Savings goals</h1><p class="muted">Give your next milestone a name and track your progress.</p></div>
+        <div class="goal-layout">
+          <form class="panel form-panel" id="goalForm">
+            <div class="section-heading"><div><p class="eyebrow">NEW MILESTONE</p><h2>Create a goal</h2></div><span class="stat-icon violet">◎</span></div>
+            <label>Goal name<input id="goalName" placeholder="e.g. New laptop" maxlength="40" required></label>
+            <label>Target amount (₹)<input id="goalTarget" type="number" min="1" step="1" placeholder="25000" required></label>
+            <label>Already saved (₹)<input id="goalSaved" type="number" min="0" step="1" value="0" required></label>
+            <label>Target date<input id="goalDeadline" type="date" required></label>
+            <button class="primary-button full-button" type="submit">Create savings goal <span>→</span></button>
+            <div class="form-message" id="goalMessage" role="status"></div>
+          </form>
+          <section class="panel goals-panel"><div class="section-heading"><div><p class="eyebrow">YOUR TARGETS</p><h2>Your goals</h2></div><span class="count-badge" id="goalCountBadge">0 goals</span></div><div id="goalsList"><div class="empty-state"><span>◎</span><b>No savings goals yet</b><p>Create your first goal to see progress here.</p></div></div></section>
+        </div>
+      </section>
+
+      <section class="page" id="page-mentor">
+        <div class="page-intro"><p class="eyebrow">LEARN AS YOU GO</p><h1>Pocket Mentor</h1><p class="muted">Simple explanations for everyday money questions.</p></div>
+        <section class="panel mentor-panel">
+          <div class="mentor-header"><div class="mentor-avatar">✧</div><div><h2>Your money learning space</h2><p class="muted">Educational guidance, not official bank support.</p></div><span class="online-dot">● READY</span></div>
+          <div class="chat-window" id="chatWindow"><div class="chat-bubble mentor-bubble">Hi! I can explain banking terms and help you recognise common warning signs. Ask about OTPs, UPI, budgeting, savings or suspicious messages.</div></div>
+          <div class="suggestion-row"><button class="suggestion" data-question="What is an OTP?">What is an OTP?</button><button class="suggestion" data-question="How does UPI work?">How does UPI work?</button><button class="suggestion" data-question="How can I spot a fake message?">Check a fake message</button><button class="suggestion" data-question="Give me a simple budgeting tip.">Budgeting tip</button></div>
+          <form id="mentorForm" class="chat-form"><input id="mentorInput" placeholder="Ask a money question..." maxlength="400" autocomplete="off"><button class="primary-button" type="submit">Send ↗</button></form>
+          <p class="fine-print">Do not paste passwords, OTPs, PINs, full account numbers or other private information into this demo.</p>
+        </section>
+      </section>
+
+      <section class="page" id="page-scams">
+        <div class="page-intro"><p class="eyebrow">PAUSE. CHECK. PROTECT.</p><h1>Scam awareness</h1><p class="muted">Learn common red flags before responding to a message or call.</p></div>
+        <div class="safety-banner"><span>盾</span><div><b>Remember: urgency is a common pressure tactic.</b><p>Pause and verify through an organisation’s official website or app. Never share confidential codes.</p></div></div>
+        <div class="scam-grid">
+          <article class="panel scam-card"><span class="scam-symbol red">!</span><h3>OTP and PIN requests</h3><p>Never share an OTP, UPI PIN, card PIN or password with someone who contacts you unexpectedly.</p><span class="red-flag">RED FLAG · SECRET CODE REQUEST</span></article>
+          <article class="panel scam-card"><span class="scam-symbol orange">↗</span><h3>Suspicious links</h3><p>Unexpected links may lead to fake websites. Check the domain carefully and avoid unknown downloads.</p><span class="red-flag">RED FLAG · UNKNOWN LINK</span></article>
+          <article class="panel scam-card"><span class="scam-symbol purple">₹</span><h3>Too-good-to-be-true offers</h3><p>Unexpected prizes, refunds or guaranteed returns can be used to pressure people into sharing details.</p><span class="red-flag">RED FLAG · UNEXPECTED REWARD</span></article>
+          <article class="panel scam-card"><span class="scam-symbol blue">☎</span><h3>Impersonation calls</h3><p>A caller claiming to be from a bank or authority should not stop you from independently verifying their identity.</p><span class="red-flag">RED FLAG · PRESSURE OR THREATS</span></article>
+        </div>
+        <section class="panel checklist-panel"><h2>Before you act, check these 4 things</h2><div class="check-grid"><div>01 <span>Who contacted me?</span></div><div>02 <span>Was I asked for a secret code?</span></div><div>03 <span>Can I verify this independently?</span></div><div>04 <span>Am I being rushed or threatened?</span></div></div></section>
+      </section>
+
+      <section class="page" id="page-profile">
+        <div class="page-intro"><p class="eyebrow">ACCOUNT SETTINGS</p><h1>Your profile</h1><p class="muted">Details for your local ALAYRIC demo account.</p></div>
+        <section class="panel profile-panel"><div class="profile-large" id="profileAvatar">Y</div><div><h2 id="profileName">Your name</h2><p class="muted" id="profileEmail">email@example.com</p><span class="count-badge" id="profileAccount">AL100001</span></div></section>
+        <section class="panel profile-details"><h2>Account information</h2><div class="detail-row"><span>Full name</span><b id="detailName">—</b></div><div class="detail-row"><span>Email</span><b id="detailEmail">—</b></div><div class="detail-row"><span>Phone</span><b id="detailPhone">—</b></div><div class="detail-row"><span>Account ID</span><b id="detailAccount">—</b></div><p class="form-note">This is a local demo profile. Do not use real banking credentials.</p></section>
+      </section>
+
+      <footer class="app-footer"><span>© 2026 ALAYRIC</span><span>Built for learning · Demo environment only</span></footer>
+    </main>
+  </div>
+
+  <div class="auth-screen" id="authScreen">
+    <div class="auth-brand"><span class="brand-mark">A</span><span>alayric<span class="brand-dot">.</span></span></div>
+    <div class="auth-layout">
+      <div class="auth-copy"><p class="eyebrow">A CLEARER WAY TO MANAGE MONEY</p><h1>Your money.<br><span>Your direction.</span></h1><p>Build better habits, understand your activity and make every goal feel a little closer.</p><div class="auth-feature"><span>✦</span> Simple money insights <span>✦</span> Savings goals</div><div class="auth-orbit"></div></div>
+      <div class="auth-card">
+        <div class="auth-tabs"><button class="auth-tab active" data-auth="login">Log in</button><button class="auth-tab" data-auth="register">Create account</button></div>
+        <div id="loginPane"><p class="eyebrow">WELCOME BACK</p><h2>Sign in to ALAYRIC</h2><p class="muted">Use your demo account details to continue.</p>
+          <form id="loginForm"><label>Email address<input id="loginEmail" type="email" placeholder="you@example.com" required></label><label>Password<input id="loginPassword" type="password" placeholder="Your password" required></label><button class="primary-button full-button" type="submit">Continue <span>→</span></button><div class="form-message" id="loginMessage"></div></form>
+          <div class="demo-hint"><b>New here?</b> Choose Create account to set up a local demo profile.</div>
+        </div>
+        <div id="registerPane" hidden><p class="eyebrow">GET STARTED</p><h2>Create your account</h2><p class="muted">Set up your personal demo space.</p>
+          <form id="registerForm"><label>Full name<input id="registerName" placeholder="Your full name" maxlength="50" required></label><label>Email address<input id="registerEmail" type="email" placeholder="you@example.com" required></label><label>Phone number<input id="registerPhone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required></label><label>Password<input id="registerPassword" type="password" minlength="8" placeholder="At least 8 characters" required></label><label>4-digit demo transaction PIN<input id="registerPin" type="password" inputmode="numeric" maxlength="4" placeholder="Create a demo PIN" required></label><label class="terms-label"><input id="registerTerms" type="checkbox" required><span>I understand this is a demo app and not a real bank.</span></label><button class="primary-button full-button" type="submit">Create demo account <span>→</span></button><div class="form-message" id="registerMessage"></div></form>
+        </div>
+        <p class="auth-disclaimer">Demo only. Do not enter real passwords, banking PINs or financial information.</p>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
